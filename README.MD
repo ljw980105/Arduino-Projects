@@ -12,3 +12,5 @@ Personal Arduino Projects, Coded in JetBrains CLion w/ Arduino Plugin
     * Uses a **ultrasonic sensor** to drive 3 LEDs that indicate distances as close, medium and far
 * Humidity & Temperature w/ LCD
     * Uses a **DHT11 Humidity Sensor** and a **LCD Display** read the humidity/temperature of the surrounding environment & print them to the LCD.
+* Obstacle Detector with LED
+    * Makes use of an **IR Sensor** to show whether an obstacle is present.
