@@ -35,6 +35,9 @@ void loop() {
     if (data > 0) {
       Serial.println(" data is read");
     }
+    if (data == 'F') {
+      Serial.print("Received Data F");
+    }
   }
 }
 

@@ -18,5 +18,6 @@ Personal Arduino Projects, Coded in JetBrains CLion w/ Arduino Plugin
     * Makes use of an **HC-08 Bluetooth Module** to turn LEDs on/off.
 
 ## Getting the HC08 Bluetooth Moule Working
-    * Make sure HC08 TX -> Arduino RX & HC08 RX -> Arduino TX.
-    * Make sure the power src supplies enough voltage (A power supply module may not supply enough voltage)
+* Make sure HC08 TX -> Arduino RX & HC08 RX -> Arduino TX.
+* Make sure the power src supplies enough voltage (A power supply module may not supply enough voltage)
+* Use separate pins for RX and TX, do not use pin 0 and 1 on the Arduino.
