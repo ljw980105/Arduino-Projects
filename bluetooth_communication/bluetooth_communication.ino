@@ -2,8 +2,8 @@
 #include <SoftwareSerial.h>
 
 #define ledpin 5
-#define txPin 1
-#define rxPin 0
+#define txPin 11
+#define rxPin 10
 
 int state = 1;
 
@@ -20,26 +20,22 @@ void setup() {
 }
 
 void loop() {
-  //    if (Serial.available()) {
-  //        state = Serial.read();
-  //        Serial.println(state);
-  //        toggle();
-  //    }
-
   // Feed all data from termial to bluetooth
-  if (Serial.available())
-    mySerial.println(Serial.read());
+  if (Serial.available()) {
+      Serial.println("serial is working");
+      mySerial.println(Serial.read()); 
+      toggle();
+    }
 
   // Feed any data from bluetooth to Terminal.
   if (mySerial.available()) {
-    int data = mySerial.read();
-    Serial.print(data);
+    char data = mySerial.read();
+    Serial.println("Blutooth -> terminal" + data);
+    toggle();
     if (data > 0) {
       Serial.println(" data is read");
     }
   }
-  delay(1000);
-  toggle();
 }
 
 void toggle() {

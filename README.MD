@@ -14,3 +14,9 @@ Personal Arduino Projects, Coded in JetBrains CLion w/ Arduino Plugin
     * Uses a **DHT11 Humidity Sensor** and a **LCD Display** read the humidity/temperature of the surrounding environment & print them to the LCD.
 * Obstacle Detector with LED
     * Makes use of an **IR Sensor** to show whether an obstacle is present.
+* Turn-on / off LED with HC-08 Bluetooth Module
+    * Makes use of an **HC-08 Bluetooth Module** to turn LEDs on/off.
+
+## Getting the HC08 Bluetooth Moule Working
+    * Make sure HC08 TX -> Arduino RX & HC08 RX -> Arduino TX.
+    * Make sure the power src supplies enough voltage (A power supply module may not supply enough voltage)
