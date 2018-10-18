@@ -9,6 +9,9 @@ int state = 1;
 
 SoftwareSerial mySerial(rxPin, txPin);
 
+void toggle();
+void sendCommand();
+
 void setup() {
   pinMode(rxPin, INPUT);
   pinMode(txPin, OUTPUT);
@@ -17,20 +20,23 @@ void setup() {
   Serial.println("begun");
   mySerial.begin(9600);
   digitalWrite(ledpin, state);
+
+  sendCommand("AT");
 }
 
 void loop() {
   // Feed all data from termial to bluetooth
   if (Serial.available()) {
       Serial.println("serial is working");
-      mySerial.println(Serial.read()); 
+      mySerial.println(Serial.read());
       toggle();
     }
 
   // Feed any data from bluetooth to Terminal.
   if (mySerial.available()) {
     char data = mySerial.read();
-    Serial.println("Blutooth -> terminal" + data);
+    Serial.print("Blutooth -> terminal ");
+    Serial.println(data);
     toggle();
     if (data > 0) {
       Serial.println(" data is read");
@@ -39,6 +45,24 @@ void loop() {
       Serial.print("Received Data F");
     }
   }
+}
+
+void sendCommand(const char * command) {
+    Serial.print("Command send :");
+    Serial.println(command);
+    mySerial.println(command);
+
+    delay(100);
+    char reply[100];
+    int i = 0;
+    while(mySerial.available()) {
+        reply[i] = mySerial.read();
+        i += 1;
+    }
+
+    reply[i] = '\0';
+    Serial.println(reply);
+    Serial.println("Reply ended");
 }
 
 void toggle() {
